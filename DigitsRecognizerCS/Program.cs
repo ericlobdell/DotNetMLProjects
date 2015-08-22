@@ -11,12 +11,10 @@ namespace DigitsRecognizerCS
 
             const string pathToDataDir = @"D:\repos\MLProjects\data\";
 
-            var trainingPath = pathToDataDir + "trainingsample.csv";
-            var training = DataReader.ReadObservations(trainingPath);
+            var training = DataReader.ReadObservations( pathToDataDir + "trainingsample.csv" );
             classifier.Train(training);
 
-            var validationPath = pathToDataDir + "validationsample.csv";
-            var validation = DataReader.ReadObservations(validationPath);
+            var validation = DataReader.ReadObservations( pathToDataDir + "validationsample.csv" );
 
             var correct = Evaluator.Correct(validation, classifier);
             Console.WriteLine("Correctly classified: {0:p2}", correct);
